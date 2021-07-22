@@ -36,6 +36,9 @@
     "frontend-e2e": {
       "tags": [],
       "implicitDependencies": ["frontend"]
+    },
+    "shared-models": {
+      "tags": []
     }
   }
 }

@@ -153,6 +153,19 @@
           }
         }
       }
+    },
+    "shared-models": {
+      "root": "libs/shared/models",
+      "sourceRoot": "libs/shared/models/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/models/**/*.ts"]
+          }
+        }
+      }
     }
   },
   "cli": {
