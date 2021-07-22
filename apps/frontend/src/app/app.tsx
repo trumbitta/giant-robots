@@ -3,6 +3,9 @@ import styled from 'styled-components';
 import { ReactComponent as Logo } from './logo.svg';
 import star from './star.svg';
 
+// Environments
+import { environment } from '../environments/environment';
+
 const StyledApp = styled.div`
   font-family: sans-serif;
   min-width: 300px;
@@ -133,11 +136,13 @@ const StyledApp = styled.div`
 `;
 
 export function App() {
+  const { fairAdjective } = environment;
+
   return (
     <StyledApp>
       <header className="flex">
         <Logo width="75" height="75" />
-        <h1>Welcome to the annual Giant Robot Fair!</h1>
+        <h1>Welcome to the {fairAdjective} Giant Robot Fair!</h1>
       </header>
       <main>
         <h2>Resources &amp; Tools</h2>
