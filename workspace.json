@@ -51,6 +51,27 @@
         }
       }
     },
+    "features-robots": {
+      "root": "libs/features/robots",
+      "sourceRoot": "libs/features/robots/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/features/robots/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/features/robots"],
+          "options": {
+            "jestConfig": "libs/features/robots/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "frontend": {
       "root": "apps/frontend",
       "sourceRoot": "apps/frontend/src",

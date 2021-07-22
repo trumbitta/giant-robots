@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 // Components
-import { GiantRobotsList } from './giant-robots/giant-robots-list.component';
+import { GiantRobotsList } from '@giant-robots/features/robots';
 
 // Environments
 import { environment } from '../environments/environment';

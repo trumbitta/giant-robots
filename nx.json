@@ -30,6 +30,9 @@
     "backend": {
       "tags": []
     },
+    "features-robots": {
+      "tags": []
+    },
     "frontend": {
       "tags": []
     },

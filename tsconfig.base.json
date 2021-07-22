@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@giant-robots/features/robots": ["libs/features/robots/src/index.ts"],
       "@giant-robots/shared/models": ["libs/shared/models/src/index.ts"]
     }
   },
