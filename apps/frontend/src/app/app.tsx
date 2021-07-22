@@ -137,7 +137,7 @@ export function App() {
     <StyledApp>
       <header className="flex">
         <Logo width="75" height="75" />
-        <h1>Welcome to frontend!</h1>
+        <h1>Welcome to the annual Giant Robot Fair!</h1>
       </header>
       <main>
         <h2>Resources &amp; Tools</h2>
