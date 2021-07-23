@@ -7,18 +7,17 @@ import { GiantRobotsList } from '@giant-robots/features/robots';
 import { environment } from '../environments/environment';
 
 function App() {
-  const { fairAdjective } = environment;
+  const { apiEndPointRobots, fairAdjective } = environment;
   const [giantRobots, setGiantRobots] = useState([]);
 
   useEffect(() => {
-    // Thank you, Nx, for the proxy conf!
-    fetch('/api')
+    fetch(apiEndPointRobots)
       .then((response) => response.json())
       .then(
         (data) => setGiantRobots(data)
         // TODO: Add error handling
       );
-  }, []);
+  }, [apiEndPointRobots]);
 
   return (
     <>

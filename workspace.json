@@ -51,6 +51,56 @@
         }
       }
     },
+    "backend-netlify": {
+      "root": "apps/backend-netlify",
+      "sourceRoot": "apps/backend-netlify/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/backend-netlify",
+            "main": "apps/backend-netlify/src/main.ts",
+            "tsConfig": "apps/backend-netlify/tsconfig.app.json",
+            "assets": ["apps/backend-netlify/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/backend-netlify/src/environments/environment.ts",
+                  "with": "apps/backend-netlify/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "backend-netlify:build"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/backend-netlify/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/backend-netlify"],
+          "options": {
+            "jestConfig": "apps/backend-netlify/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "features-robots": {
       "root": "libs/features/robots",
       "sourceRoot": "libs/features/robots/src",
@@ -171,6 +221,27 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/frontend-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "shared-backend": {
+      "root": "libs/shared/backend",
+      "sourceRoot": "libs/shared/backend/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/backend/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/backend"],
+          "options": {
+            "jestConfig": "libs/shared/backend/jest.config.js",
+            "passWithNoTests": true
           }
         }
       }
