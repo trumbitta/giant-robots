@@ -1,6 +1,12 @@
 {
   "version": 2,
   "projects": {
+    "api-spec": {
+      "root": "libs/api-spec",
+      "sourceRoot": "libs/api-spec/src",
+      "projectType": "library",
+      "targets": {}
+    },
     "backend": {
       "root": "apps/backend",
       "sourceRoot": "apps/backend/src",
@@ -63,7 +69,8 @@
             "outputPath": "dist/apps/backend-netlify",
             "main": "apps/backend-netlify/src/main.ts",
             "tsConfig": "apps/backend-netlify/tsconfig.app.json",
-            "assets": ["apps/backend-netlify/src/assets"]
+            "assets": ["apps/backend-netlify/src/assets"],
+            "webpackConfig": "apps/backend-netlify/webpack.config.js"
           },
           "configurations": {
             "production": {
@@ -225,6 +232,22 @@
         }
       }
     },
+    "shared-api": {
+      "root": "libs/shared/api",
+      "sourceRoot": "libs/shared/api/src",
+      "projectType": "library",
+      "targets": {
+        "generate-sources": {
+          "executor": "@trumbitta/nx-plugin-openapi:generate-api-lib-sources",
+          "options": {
+            "generator": "typescript-fetch",
+            "sourceSpecPathOrUrl": "libs/api-spec/src/giant-robots.openapi.yml",
+            "additionalProperties": "supportsES6,typescriptThreePlus",
+            "globalProperties": ""
+          }
+        }
+      }
+    },
     "shared-backend": {
       "root": "libs/shared/backend",
       "sourceRoot": "libs/shared/backend/src",
@@ -242,19 +265,6 @@
           "options": {
             "jestConfig": "libs/shared/backend/jest.config.js",
             "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "shared-models": {
-      "root": "libs/shared/models",
-      "sourceRoot": "libs/shared/models/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/shared/models/**/*.ts"]
           }
         }
       }

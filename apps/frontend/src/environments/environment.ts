@@ -4,5 +4,5 @@
 export const environment = {
   production: false,
   fairAdjective: 'tentative',
-  apiEndPointRobots: '/api',
+  apiEndPointRobots: '/api/v1',
 };

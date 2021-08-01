@@ -1,5 +1,12 @@
 import { useEffect, useState } from 'react';
 
+// Libs
+import {
+  GiantRobotsApi,
+  GiantRobot,
+  Configuration,
+} from '@giant-robots/shared/api';
+
 // Components
 import { GiantRobotsList } from '@giant-robots/features/robots';
 
@@ -8,16 +15,26 @@ import { environment } from '../environments/environment';
 
 function App() {
   const { apiEndPointRobots, fairAdjective } = environment;
-  const [giantRobots, setGiantRobots] = useState([]);
+  const [giantRobots, setGiantRobots] = useState<GiantRobot[]>([]);
 
   useEffect(() => {
-    fetch(apiEndPointRobots)
-      .then((response) => response.json())
-      .then(
-        (data) => setGiantRobots(data)
-        // TODO: Add error handling
-      );
-  }, [apiEndPointRobots]);
+    const fetchData = async () => {
+      const apiConfiguration = new Configuration({
+        basePath: apiEndPointRobots,
+      });
+      const api = new GiantRobotsApi(apiConfiguration);
+
+      try {
+        const robots = await api.getGiantRobots();
+
+        setGiantRobots(robots);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <>

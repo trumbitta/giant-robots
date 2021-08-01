@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 
 // Libs
-import { GiantRobot } from '@giant-robots/shared/models';
+import { GiantRobot } from '@giant-robots/shared/api';
 import { getRobots } from '@giant-robots/shared/backend';
 
 @Injectable()

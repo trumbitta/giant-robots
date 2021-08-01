@@ -16,8 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@giant-robots/features/robots": ["libs/features/robots/src/index.ts"],
-      "@giant-robots/shared/backend": ["libs/shared/backend/src/index.ts"],
-      "@giant-robots/shared/models": ["libs/shared/models/src/index.ts"]
+      "@giant-robots/shared/api": ["libs/shared/api/src/index.ts"],
+      "@giant-robots/shared/backend": ["libs/shared/backend/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

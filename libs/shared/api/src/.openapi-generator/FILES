@@ -1,0 +1,7 @@
+.openapi-generator-ignore
+apis/GiantRobotsApi.ts
+apis/index.ts
+index.ts
+models/GiantRobot.ts
+models/index.ts
+runtime.ts

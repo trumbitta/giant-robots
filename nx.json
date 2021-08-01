@@ -27,6 +27,9 @@
     ]
   },
   "projects": {
+    "api-spec": {
+      "tags": []
+    },
     "backend": {
       "tags": []
     },
@@ -43,10 +46,11 @@
       "tags": [],
       "implicitDependencies": ["frontend"]
     },
-    "shared-backend": {
-      "tags": []
+    "shared-api": {
+      "tags": [],
+      "implicitDependencies": ["api-spec"]
     },
-    "shared-models": {
+    "shared-backend": {
       "tags": []
     }
   }

@@ -1,5 +1,5 @@
 // Libs
-import { GiantRobot } from '@giant-robots/shared/models';
+import { GiantRobot } from '@giant-robots/shared/api';
 
 export const getRobots = () =>
   [
